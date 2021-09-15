@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+
+
+    <title>작은 가족과 함께 WITHPET</title>
+<!--?스타일 뺄라인-->
+    <style>
+        .wrap {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .nav {
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+
+        }
+
+        .logo {
+            margin: 10px 0 0 10px;
+            color: black;
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+        .nav-right {
+            margin: 20px 0 0 0;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 10px;
+        }
+
+        .nav-right a {
+            color: black;
+            font-weight: 700;
+
+        }
+
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            text-align: center;
+            font-size: 30px;
+            font-width: 200;
+        }
+
+        .main-img {
+            height: 700px;
+            background-image: url("https://images.unsplash.com/photo-1489440543286-a69330151c0b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .main-text {
+            width: 800px;
+            margin: 10px auto;
+            /*background-size: 100% 100%;*/
+
+            padding: 5px 10px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%, -50% )
+        }
+
+        .card-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 15px;
+            margin-top: 10px;
+
+        }
+        .bottom {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+
+        /*.place-item {*/
+        /*    width: 300px;*/
+        /*    height: 300px;*/
+        /*    border: 1px solid black;*/
+        /*    margin: 20px;*/
+        /*    border-radius: 4px;*/
+        /*}*/
+
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="nav">
+            <div class="logo">WITH PET</div>
+
+            <div class="nav-right">
+                <a href="#">
+                    <div class="nav-item">로그인</div>
+                </a>
+                <a href="#">
+                    <div class="nav-item">회원가입</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="main-img">
+            <div class="main-text">
+                <div class="title">작은 가족와 함께하는 특별한 여행</div>
+                <div class="sub-title">우리에게 맞는 장소를 찾아보세요.</div>
+            </div>
+        </div>
+<!--        여기 밑에 카드글자 및 별점 점수 클래스 작성 완료-->
+            <div class="card-box">
+                <a class="card" href="#">
+                    <img class="card-img-top"
+                         src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=663&q=80"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">애완묘세상</h5>
+                        <p class="card-text">귀여운 고양이와 뛰어 놀수있어요</p>
+                        <p class="card-star">여기는 별<span>여기는 점수</span></p>
+                    </div>
+                </a>
+                <a class="card" href="#">
+                    <img class="card-img-top"
+                         src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=663&q=80"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">애완묘세상</h5>
+                        <p class="card-text">귀여운 고양이와 뛰어 놀수있어요</p>
+                        <p class="card-star">여기는 별<span>여기는 점수</span></p>
+                    </div>
+                </a>
+                <a class="card" href="#">
+                    <img class="card-img-top"
+                         src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=663&q=80"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">애완묘세상</h5>
+                        <p class="card-text">귀여운 고양이와 뛰어 놀수있어요</p>
+                        <p class="card-star">여기는 별<span>여기는 점수</span></p>
+                    </div>
+                </a>
+            </div>
+                <div class="bottom">
+                <p>즐거운 추억을 함께 by <a href="#">@ WITHPET</a></p>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--상세목록 있는지 확인 없을시 이글 지우기-->
