@@ -1,9 +1,17 @@
+* {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
 .nav {
     display: flex;
     justify-content: center;
     height: 100px;
     align-items: center;
-    font-size: 60px;
+    font-size: 80px;
+    font-weight: 700;
+    align-content: center;
+    color: #191970;
+    margin-bottom: 10px;
 }
 
 .posting-box {
@@ -14,11 +22,13 @@
 .wrap {
     width: 1000px;
     margin: auto;
-
+    font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .container {
-    padding-left: 50px;
+    padding-left: 250px;
+    width:1000px;
+
 }
 
 .custom-file {
@@ -29,9 +39,33 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
-}
+    /*border: 0.3px solid grey;*/
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
 
+
+}
 #card {
     width:280px;
     margin: 0;
+    margin: 20px;
+
+}
+
+.card-img-top {
+    width: 280px;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-body {
+    border: 1px solid #D7F1FA;
+    border-top:0;
+}
+
+#container {
+    background-color: #E8F5FF;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    color: #4a4a4a;
 }

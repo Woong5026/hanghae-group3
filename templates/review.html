@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,6 +39,7 @@
             listing()
         })
 
+
         function listing() {
             $.ajax({
                 type: "GET",
@@ -45,16 +51,21 @@
                         let title = diaries[i]['title']
                         let content = diaries[i]['content']
                         let file = diaries[i]['file']
+                        let date = diaries[i]['date']
+
 
                         let temp_html = `        <div id="card">
                                                     <img src="../static/${file}" class="card-img-top">
                                                     <div class="card-body">
                                                         <h5 class="card-title">${title}</h5>
                                                         <p class="card-text">${content}</p>
-
+                                                        <p class="card-date">${date}</p>
                                                     </div>
                                                 </div>`
+
+
                         $('#cards-box').append(temp_html)
+
 
                     }
                 }
@@ -66,6 +77,7 @@
             let title = $('#title').val();
             let content = $("#content").val();
             let file = $('#file')[0].files[0]
+            let date = $('#date').val()
             let form_data = new FormData()
 
             if (title === '') {
@@ -78,7 +90,7 @@
                 $('#content').focus();
                 return;
 
-            } else if (!file)  {
+            } else if (!file) {
                 alert('사진을 저장해주세요.');
                 $('#file').focus();
                 return;
@@ -90,6 +102,8 @@
             form_data.append("title_give", title)
             form_data.append("content_give", content)
 
+
+            // 여기까지 확인 한번 부탁하기!!!
 
             $.ajax({
                 type: "POST",
@@ -112,12 +126,12 @@
 
 <body>
 <div class="nav" onclick="location.href='../'">
-    사이트 제목
+    WITH PET
 </div>
 <div class="wrap">
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid" id="container">
         <div class="container">
-            <h1>애완 호텔 리뷰 </h1>
+            <h3>리뷰작성 </h3>
             <div class="posting-box">
                 <div>
                     <div class="form-group">

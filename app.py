@@ -252,7 +252,8 @@ def save_diary():
     doc={
         'title':title_receive,
         'content':content_receive,
-        'file':f'{filename}.{extension}'
+        'file':f'{filename}.{extension}',
+        'date': mytime
     }
     db.diary.insert_one(doc)
 
