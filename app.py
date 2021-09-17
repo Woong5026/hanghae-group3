@@ -1,3 +1,5 @@
+import requests
+from bs4 import BeautifulSoup
 from pymongo import MongoClient
 import jwt
 import datetime
@@ -7,6 +9,7 @@ from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 
 
+
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
@@ -14,7 +17,7 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 SECRET_KEY = 'SPARTA'
 
 client = MongoClient('mongodb://52.79.226.11', 27017, username="test", password="test")
-db = client.gruop3
+db = client.PetHotel
 
 
 
@@ -140,8 +143,46 @@ def update_like():
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for("home"))
 
+@app.route('/memo', methods=['POST'])
+def saving():
+
+    url = "https://www.goodchoice.kr/product/recommend/153"
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+    data = requests.get(url, headers=headers)
+
+    soup = BeautifulSoup(data.text, 'html.parser')
+
+    lis = soup.select('#poduct_list_area > li')
+    for li in lis:
+        hotel_rate_em = li.select_one('a > div > div.name > p.score > em')
+        if hotel_rate_em is not None:
+            hotel_name = li.select_one('a > div > div.name > strong').text
+            hotel_rate = hotel_rate_em.text
+            hotel_price = li.select_one('a > div > div.price > p > b').text
+            hotel_location = li.select_one('a > div > div.name > p:nth-child(3)').text.strip()
+            hotel_imageUrl = li.select_one('a > p > img')['data-original']
+
+            doc = {
+                'name': hotel_name,
+                'rate': hotel_rate,
+                'location': hotel_location,
+                'price': hotel_price,
+                'imageUrl': hotel_imageUrl,
+            }
+
+            db.hotels.insert_one(doc)
 
 
+    return jsonify({'msg':'저장이 완료되었습니다!'})
+
+
+@app.route('/hotels', methods=['GET'])
+def get_hotels():
+    hotels = list(db.hotels.find({}, {'_id' : False}))  # '_id':false 원랜 들어감
+    # return render_template("index.html", hotels=hotels, state_receive=state_receive)
+    return jsonify({'result': 'success', 'hotels': hotels})
 
 
 @app.route('/main')

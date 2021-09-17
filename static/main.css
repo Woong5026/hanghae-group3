@@ -76,6 +76,7 @@
 }
 .card{
     cursor: pointer;
+    margin-top:30px;
 }
 
 .bottom {

@@ -34,6 +34,42 @@
         function goIndex() {
             location.href = '/index'
         }
+
+        $(document).ready(function () {
+            showHotel();
+        });
+
+        function showHotel() {
+            $.ajax({
+                type: "GET",
+                url: `/hotels`,
+                data: {},
+                success: function (response) {
+                    let show_hotels = response['hotels']
+                    for (let i = 0; i < 9; i++) {
+                        let name = show_hotels[i]['name']
+                        let price = show_hotels[i]['price']
+                        let location = show_hotels[i]['location']
+                        let imageUrl = show_hotels[i]['imageUrl']
+
+                        let temp_html =
+                        ` <a class="card" onclick="goIndex()">
+            <img class="card-img-top"
+                 src="${imageUrl}"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">${location}</p>
+                <p class="card-star">${price}</p>
+            </div>
+        </a>`
+
+                            $('.card-box').append(temp_html)
+                    }
+                }
+            });
+        }
+
     </script>
 </head>
 
@@ -51,37 +87,8 @@
         </div>
     </div>
     <!--        여기 밑에 카드글자 및 별점 점수 클래스 작성 완료-->
-    <div class="card-box" style="cursor:pointer">
-        <a class="card" onclick="goIndex()">
-            <img class="card-img-top"
-                 src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=663&q=80"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">애완묘세상</h5>
-                <p class="card-text">귀여운 고양이와 뛰어 놀수있어요</p>
-                <p class="card-star">여기는 별<span>여기는 점수</span></p>
-            </div>
-        </a>
-        <a class="card" onclick="goIndex()">
-            <img class="card-img-top"
-                 src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=663&q=80"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">애완묘세상</h5>
-                <p class="card-text">귀여운 고양이와 뛰어 놀수있어요</p>
-                <p class="card-star">여기는 별<span>여기는 점수</span></p>
-            </div>
-        </a>
-        <a class="card" onclick="goIndex()">
-            <img class="card-img-top"
-                 src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=663&q=80"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">애완묘세상</h5>
-                <p class="card-text">귀여운 고양이와 뛰어 놀수있어요</p>
-                <p class="card-star">여기는 별<span>여기는 점수</span></p>
-            </div>
-        </a>
+<div class="card-box" style="cursor:pointer">
+
     </div>
     <div class="bottom">
         <p>즐거운 추억을 함께 by <a href="#">@ WITHPET</a></p>
