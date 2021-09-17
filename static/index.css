@@ -9,12 +9,12 @@
 body {
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 100px 250px 250px;
+    grid-template-rows: 100px 300px 250px;
 
 }
 
 img {
-    height: 400px;
+    height: 408px;
     width: 1000px;
 }
 
@@ -45,11 +45,13 @@ img {
     /*border: 1px solid;*/
     padding: 20px 20px;
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    background-color: #E8F5FF;
 
 }
 
 .main_1:nth-child(n) {
     padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .main_2 {
@@ -59,9 +61,12 @@ img {
     display: grid;
     justify-content: center;
     margin-top: 120px;
-    grid-column-start: 1;
+    grid-column-start: 2;
+    margin-right: 350px;
     grid-column-end: 3;
     margin-left: 200px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    background-color: #E8F5FF;
 
 }
 
@@ -127,6 +132,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 100px;
 
 }
 
