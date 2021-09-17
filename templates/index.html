@@ -16,6 +16,9 @@
 
 
     <script>
+        $(document).ready(function () {
+            showHotel();
+        });
         function getReady() {
             let person = $('#person').val();
             let checkIn = $('#checkIn').val(); //checkIn 읽어오기
@@ -46,7 +49,7 @@
 
                     }
                 })
-                location.href = '/check'
+                location.href = '/main'
 
             } else {
                 for (key in keys) {
@@ -58,7 +61,38 @@
                 }
             }
         }
+       function showHotel() {
+            let a = localStorage.Test;
+            $.ajax({
+                type: "GET",
+                url: `/hotels`,
+                data: {},
+                success: function (response) {
 
+                    let show_hotels = response['hotels']
+                        let name = show_hotels[a]['name']
+                        let price = show_hotels[a]['price']
+                        let location = show_hotels[a]['location']
+                        let imageUrl = show_hotels[a]['imageUrl']
+                        let num = show_hotels[a]['checkId']
+                        let temp_html =`
+                            <div class="main_2">
+                       <img src="${imageUrl}" alt="">
+</div>
+
+<div class="main_3">
+    <p class="title_3" >${name}</p>
+    <p class="content_3">${location}</p>
+
+</div>
+`
+
+
+                            $('body').append(temp_html)
+
+                }
+            })
+        }
 
     </script>
 
@@ -117,14 +151,7 @@
 
 
 </div>
-<div class="main_2">
 
-</div>
-
-<div class="main_3">
-    <p class="title_3">강아지호텔</p>
-    <p class="content_3">호텔 설명</p>
-</div>
 
 </body>
 </html>

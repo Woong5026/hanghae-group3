@@ -16,7 +16,7 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 SECRET_KEY = 'SPARTA'
 
-client = MongoClient('mongodb://52.79.226.11', 27017, username="test", password="test")
+client = MongoClient('localhost', 27017)
 db = client.PetHotel
 
 
@@ -180,7 +180,7 @@ def saving():
 
 @app.route('/hotels', methods=['GET'])
 def get_hotels():
-    hotels = list(db.hotels.find({}, {'_id' : False}))  # '_id':false 원랜 들어감
+    hotels = list(db.list.find({}, {'_id' : False}))  # '_id':false 원랜 들어감
     # return render_template("index.html", hotels=hotels, state_receive=state_receive)
     return jsonify({'result': 'success', 'hotels': hotels})
 

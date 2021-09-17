@@ -31,9 +31,6 @@
     <!--?스타일 뺄라인-->
 
     <script>
-        function goIndex() {
-            location.href = '/index'
-        }
 
         $(document).ready(function () {
             showHotel();
@@ -45,15 +42,17 @@
                 url: `/hotels`,
                 data: {},
                 success: function (response) {
+
                     let show_hotels = response['hotels']
                     for (let i = 0; i < 9; i++) {
                         let name = show_hotels[i]['name']
                         let price = show_hotels[i]['price']
                         let location = show_hotels[i]['location']
                         let imageUrl = show_hotels[i]['imageUrl']
-
+                        let num = show_hotels[i]['checkId']
                         let temp_html =
-                        ` <a class="card" onclick="goIndex()">
+                        ` <a class="card" onclick="goIndex${num}()" >
+            <input type="hidden" class="num${num}" value="${num}">
             <img class="card-img-top"
                  src="${imageUrl}"
                  alt="Card image cap">
@@ -67,8 +66,128 @@
                             $('.card-box').append(temp_html)
                     }
                 }
-            });
+            })
         }
+            function goIndex0() {
+            let a = $('.num0').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex1() {
+            let a = $('.num1').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex2() {
+            let a = $('.num2').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex3() {
+            let a = $('.num3').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex4() {
+            let a = $('.num4').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex5() {
+            let a = $('.num5').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex6() {
+            let a = $('.num6').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex7() {
+            let a = $('.num7').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+             location.href='/index'
+        }
+          function goIndex8() {
+            let a = $('.num8').val()
+
+          for(let i = 0 ; i< 10 ; i++)
+          {
+             if(a==i)
+             {
+                 localStorage.Test=a;
+             }
+          }
+                 location.href='/index'
+
+        }
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 </head>
