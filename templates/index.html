@@ -20,7 +20,7 @@
             showHotel();
         });
         function getReady() {
-            let person = $('#person').val();
+            let person = $('#name').val();
             let checkIn = $('#checkIn').val(); //checkIn 읽어오기
             let checkOut = $('#checkOut').val(); //checkOut 읽어오기
             let room = $('#roomName').val(); //방이름 읽어오기
@@ -33,7 +33,7 @@
                 "견종": id
             }
             if (person && checkIn && checkOut && room && id) {
-
+  alert('예약 완료되었습니다!')
                 $.ajax({
                     type: "POST",
                     url: "/reservation",
@@ -45,7 +45,7 @@
                         id_give: id
                     },
                     success: function (response) {
-                        alert('예약 완료되었습니다!')
+
 
                     }
                 })

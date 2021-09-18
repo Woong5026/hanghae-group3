@@ -17,6 +17,7 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 SECRET_KEY = 'SPARTA'
 
 client = MongoClient('localhost', 27017)
+# client = MongoClient('mongodb://test:test@localhost', 27017)
 db = client.PetHotel
 
 
