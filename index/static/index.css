@@ -1,0 +1,155 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+}
+
+body {
+    display: grid;
+    grid-template-columns:  20% 1000px;
+    grid-template-rows: 100px 300px 250px;
+    justify-content:center;
+}
+
+img {
+    height: 407px;
+    width: 1000px;
+}
+
+.nav {
+
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    color: #191970;
+    /*.bold(font-weight:600;)*/
+    font-weight: 700;
+    cursor: pointer;
+
+
+
+}
+
+.main_1 {
+    display: grid;
+    grid-template-rows: 60px 30px 30px 30px 30px 30px 30px 30px 10px 10px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    justify-content: center;
+    /*border: 1px solid;*/
+    padding: 20px 20px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    background-color: #E8F5FF;
+
+
+}
+
+.main_1:nth-child(n) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.main_2 {
+
+}
+
+.main_3 {
+    display: grid;
+    justify-content: center;
+    margin-top: 120px;
+    grid-column-start: 2;
+
+    grid-column-end: 3;
+
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    background-color: #E8F5FF;
+
+}
+
+.main_3 .title_3 {
+    font-size: 40px;
+    padding-top: 30px;
+    display: grid;
+    justify-content: center;
+}
+
+.main_3 .content_3 {
+    font-size: 20px;
+    display: grid;
+    justify-content: center;
+
+}
+
+.person {
+    display: inline-block;
+    width: 100%;
+}
+
+#name {
+    width: 150px;
+    height: 20px;
+    display: inline-block;
+
+}
+
+#roomName {
+    width: 150px;
+    height: 23px;
+
+}
+
+.bnt_1 {
+    display: block;
+    margin: auto;
+    height: 25px;
+    width: 200px;
+    cursor: pointer;
+
+}
+
+.bnt_2 {
+    display: block;
+    margin: auto;
+    height: 25px;
+    width: 200px;
+    cursor: pointer;
+
+}
+
+
+#id {
+    height: 20px;
+    width: 148px;
+
+}
+
+.decr {
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+
+}
+
+.rev {
+    /*position: absolute;*/
+    font-size: 28px;
+    display: block;
+    padding: 0 0 0 50px;
+    margin: auto;
+}
+
+#checkIn {
+    width: 149px;
+}
+
+#checkOut {
+    width: 150px;
+}

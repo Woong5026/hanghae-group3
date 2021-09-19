@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+
+    <title>reservation</title>
+
+    <link rel="stylesheet" href="static/index.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            showHotel();
+        });
+        function getReady() {
+            let person = $('#name').val();
+            let checkIn = $('#checkIn').val(); //checkIn 읽어오기
+            let checkOut = $('#checkOut').val(); //checkOut 읽어오기
+            let room = $('#roomName').val(); //방이름 읽어오기
+            let id = $('#id').val();
+            const keys = {
+                "예약자명": person,
+                "체크인": checkIn,
+                "체크아웃": checkOut,
+                "강아지수": room,
+                "견종": id
+            }
+            if (person && checkIn && checkOut && room && id) {
+  alert('예약 완료되었습니다!')
+                $.ajax({
+                    type: "POST",
+                    url: "/reservation",
+                    data: {
+                        person_give: person,
+                        checkIn_give: checkIn,
+                        checkOut_give: checkOut,
+                        room_give: room,
+                        id_give: id
+                    },
+                    success: function (response) {
+
+
+                    }
+                })
+                location.href = '/main'
+
+            } else {
+                for (key in keys) {
+                    if (keys[key] == 0) {
+
+                        alert(`${key}이 적혀 있지 않습니다!`);
+                    }
+
+                }
+            }
+        }
+       function showHotel() {
+            let a = localStorage.Test;
+            $.ajax({
+                type: "GET",
+                url: `/hotels`,
+                data: {},
+                success: function (response) {
+
+                    let show_hotels = response['hotels']
+                        let name = show_hotels[a]['name']
+                        let price = show_hotels[a]['price']
+                        let location = show_hotels[a]['location']
+                        let imageUrl = show_hotels[a]['imageUrl']
+                        let num = show_hotels[a]['checkId']
+                        let temp_html =`
+                            <div class="main_2">
+                       <img src="${imageUrl}" alt="">
+</div>
+
+<div class="main_3">
+    <p class="title_3" >${name}</p>
+    <p class="content_3">${location}</p>
+
+</div>
+`
+
+
+                            $('body').append(temp_html)
+
+                }
+            })
+        }
+
+    </script>
+
+</head>
+
+<body>
+<div class="nav" onclick="location.href='/main'">
+    WITH PET
+</div>
+
+<div class="wrap">
+<div class="main_1">
+    <div>
+        <span class="rev"> 예약하기 </span>
+    </div>
+    <div class="person">
+        <span class="title_under">예약자명</span>
+        <input type="text" placeholder="이름" class="form-control" id="name">
+    </div>
+    <div class="com1">
+        <span>체크인&nbsp;&nbsp;&nbsp;&nbsp;</span> <input type="date" id="checkIn"></div>
+    <div>
+        <span>체크아웃</span> <input type="date" id="checkOut"></div>
+    <div class="room">
+        <span>강아지 수</span>
+        <select name="dogs" id="roomName" class="id">
+            <option value="">number</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+
+    <div class="id">
+
+        <span>견종&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+        <input type="text" placeholder="견종" id="id">
+
+    </div>
+
+    <div>
+        <button class="bnt_1" onclick="getReady()">완료!</button>
+    </div>
+    <div>
+
+        <button class="bnt_2" onclick="location.href='/review' ">리뷰 남기기</button>
+    </div>
+
+    <div id="reservations-box">
+    </div>
+    <div>
+        <span class="decr"> 예약을 원하는 날짜,인원을 선택해 주세요. </span>
+    </div>
+<div>
+    <p></p>
+</div>
+
+</div>
+</div>
+
+
+</body>
+</html>
